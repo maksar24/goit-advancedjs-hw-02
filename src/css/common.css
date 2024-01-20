@@ -53,6 +53,7 @@ img {
 }
 
 .form button {
+  cursor: pointer;
   font-size: 24px;
   height: 40px;
   width: 100px;

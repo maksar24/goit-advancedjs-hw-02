@@ -61,25 +61,27 @@ function addLeadingZero(value) {
     return value.toString().padStart(2, "0");
 };
 
+function showTimer() {
+    const dateNow = new Date().getTime();
+    let differenceTime = convertMs(chosenDate - dateNow);
+    elements.days.textContent = addLeadingZero(differenceTime.days);
+    elements.hours.textContent = addLeadingZero(differenceTime.hours);
+    elements.minutes.textContent = addLeadingZero(differenceTime.minutes);
+    elements.seconds.textContent = addLeadingZero(differenceTime.seconds);
+    
+    if (chosenDate <= dateNow) {
+        elements.days.textContent = "00";
+        elements.hours.textContent = "00";
+        elements.minutes.textContent = "00";
+        elements.seconds.textContent = "00";
+        clearInterval(timerId);
+    }
+};
+
 function startTimer() {
     elements.btnStart.disabled = true;
-    const interval = setInterval(() => {
-        const dateNow = new Date().getTime();
-        let differenceTime = convertMs(chosenDate - dateNow);
-        elements.days.textContent = addLeadingZero(differenceTime.days);
-        elements.hours.textContent = addLeadingZero(differenceTime.hours);
-        elements.minutes.textContent = addLeadingZero(differenceTime.minutes);
-        elements.seconds.textContent = addLeadingZero(differenceTime.seconds);
-        
-        if (chosenDate <= dateNow) {
-            elements.days.textContent = "00";
-            elements.hours.textContent = "00";
-            elements.minutes.textContent = "00";
-            elements.seconds.textContent = "00";
-            clearInterval(timerId);
-        }
-    }, 0);
-    timerId = setInterval(interval, 1000);
+    showTimer();
+    timerId = setInterval(showTimer, 1000);
 };
 
 flatpickr(elements.dater, options);

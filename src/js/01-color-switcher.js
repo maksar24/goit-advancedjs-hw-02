@@ -10,11 +10,14 @@ function getRandomHexColor() {
 };
 
 function changeColor() {
-    timerId = setInterval(() => {
-        let color = getRandomHexColor();
-        elements.body.style.backgroundColor = color;
-    }, 1000);
+    let color = getRandomHexColor();
+    elements.body.style.backgroundColor = color;
+};
+
+function colorSwitcher() {
     elements.btnStart.disabled = true;
+    changeColor();
+    timerId = setInterval(changeColor, 1000);
 };
 
 function stopChangeColor() {
@@ -22,5 +25,5 @@ function stopChangeColor() {
     elements.btnStart.disabled = false;
 };
 
-elements.btnStart.addEventListener("click", changeColor);
+elements.btnStart.addEventListener("click", colorSwitcher);
 elements.btnStop.addEventListener("click", stopChangeColor);
