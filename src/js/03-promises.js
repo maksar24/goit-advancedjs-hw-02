@@ -43,7 +43,7 @@ function handleSubmit(e) {
         title: "❌",
         message: `Rejected promise ${position} in ${delay}ms`,
         theme: 'light',
-        color: '#5aad5e'
+        color: '#b35c5c'
       });
     });
   };

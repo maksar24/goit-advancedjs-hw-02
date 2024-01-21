@@ -52,19 +52,28 @@ img {
   color: rgb(90, 89, 59);
 }
 
+.container_calendar input:disabled {
+  cursor: default;
+}
+
 .container_calendar button {
   font-size: 24px;
   height: 40px;
   width: 100px;
-  background-color: #309135;
-  color: #cccab4;
-  border: none;
+  background-color: #2ac932;
+  color: #706d4e;
+  border: solid 2px #396127;
   border-radius: 10px;
+}
+
+.container_calendar button:disabled {
+  background-color: #309135;
 }
 
 .container_calendar button:not([disabled]):hover {
   cursor: pointer;
-  background-color: #3ebe43;
+  color: #5a583d;
+  background-color: #4ee253;
 }
 
 .form {
@@ -111,13 +120,18 @@ img {
   font-size: 24px;
   height: 60px;
   width: 240px;
-  background-color: #309135;
-  color: #cccab4;
-  border: none;
+  background-color: #2ac932;
+  color: #706d4e;
+  border: solid 2px #396127;
   border-radius: 10px;
 }
 
 .btn:not([disabled]):hover {
   cursor: pointer;
-  background-color: #3ebe43;
+  color: #5a583d;
+  background-color: #4ee253;
+}
+
+.btn:disabled {
+  background-color: #309135;
 }

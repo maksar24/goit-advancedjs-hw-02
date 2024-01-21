@@ -80,6 +80,7 @@ function showTimer() {
 
 function startTimer() {
     elements.btnStart.disabled = true;
+    elements.dater.disabled = true;
     showTimer();
     timerId = setInterval(showTimer, 1000);
 };
