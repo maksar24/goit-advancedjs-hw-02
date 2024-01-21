@@ -27,7 +27,7 @@ onClose(selectedDates) {
     chosenDate = selectedDates[0].getTime();
     if (chosenDate <= dateNow) {
         iziToast.show({
-            title: "Alert",
+            title: "💢",
             message: "Please choose a date in the future",
             theme: 'light',
             color: '#5aad5e'
@@ -63,11 +63,11 @@ function addLeadingZero(value) {
 
 function showTimer() {
     const dateNow = new Date().getTime();
-    let differenceTime = convertMs(chosenDate - dateNow);
-    elements.days.textContent = addLeadingZero(differenceTime.days);
-    elements.hours.textContent = addLeadingZero(differenceTime.hours);
-    elements.minutes.textContent = addLeadingZero(differenceTime.minutes);
-    elements.seconds.textContent = addLeadingZero(differenceTime.seconds);
+    let {days, hours, minutes, seconds } = convertMs(chosenDate - dateNow);
+    elements.days.textContent = addLeadingZero(days);
+    elements.hours.textContent = addLeadingZero(hours);
+    elements.minutes.textContent = addLeadingZero(minutes);
+    elements.seconds.textContent = addLeadingZero(seconds);
     
     if (chosenDate <= dateNow) {
         elements.days.textContent = "00";
